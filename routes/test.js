@@ -14,7 +14,7 @@ connection.connect();
 
 
 /* GET test page. */
-router.get('/test', function(request, response, next) {
+router.get('/test', function(request, response) {
     connection.query('SELECT * FROM login', function(err, rows, fields) {
         if (err) {
             console.log('Encountered an error:', err.message);
@@ -22,6 +22,7 @@ router.get('/test', function(request, response, next) {
         }
         data = ({'data' : rows});
         console.log(data);
+
 
         response.json(data);
     });
